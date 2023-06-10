@@ -7,6 +7,7 @@
     <title>Home</title>
   </head>
   <body>
+    <h1>Enter Personal Data</h1>
     <form method="POST" action="{{ url_for('views.submit') }}">
       <label for="inputField">Enter your private data:</label>
       <input
@@ -18,6 +19,7 @@
       <br /><br />
       <input type="submit" value="Submit" />
     </form>
+    <h1>Ask Question</h1>
     <form method="POST" action="{{ url_for('views.query') }}">
       <label for="queryField">Enter your query:</label>
       <input
@@ -28,6 +30,5 @@
       />
       <br /><br />
       <input type="submit" value="Submit" />
-    </form>
   </body>
 </html>

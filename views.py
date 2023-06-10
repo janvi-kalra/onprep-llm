@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request
-import embed
+import embed, chroma
 
 views = Blueprint(__name__, "views")
 
@@ -12,14 +12,15 @@ def submit():
     if request.method == "POST":
         input_data = request.form.get("inputField")
         # Process the input_data with your Python code here
-        processed_data = embed.test(input_data)  # Replace with your own processing logic
-        return render_template("result.html", processed_data=processed_data)
+        chroma.addToCollection(input_data, 'none')
+        return render_template("result.html", processed_data='Loaded this content')
 
 
 @views.route("/query", methods=["POST"])
 def query():
     if request.method == "POST":
-        input_data = request.form.get("queryField")
-        # todo:query chroma embeddings database with text to get stored journal entries with related embeddings
+        question = request.form.get("queryField")
+        print(question)
+        relevant_data = chroma.getRelevantResponses(question)
         # todo: query Open Assistant with original query and related journal entries
-        return render_template("result.html", processed_data="Congrats, this will soon work for you!")
+        return render_template("result.html", processed_data=relevant_data)
