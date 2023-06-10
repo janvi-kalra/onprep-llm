@@ -7,13 +7,13 @@
     <title>Home</title>
   </head>
   <body>
-    <form>
-      <label for="inputField">Enter your prompt:</label>
+    <form method="POST" action="{{ url_for('views.submit') }}">
+      <label for="inputField">Enter your private data:</label>
       <input
         type="text"
         id="inputField"
-        name="name"
-        placeholder="Your prompt here"
+        name="inputField"
+        placeholder="Your private data here"
       />
       <br /><br />
       <input type="submit" value="Submit" />
