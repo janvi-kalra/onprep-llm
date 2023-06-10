@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request
-import embed, chroma
+import embed, chroma, gmail
 
 views = Blueprint(__name__, "views")
 
@@ -10,7 +10,8 @@ def index():
 @views.route("/submit", methods=["POST"])
 def submit(): 
     if request.method == "POST":
-        input_data = request.form.get("inputField")
+        google_link = request.form.get("inputField")
+        input_data = gmail.inputGoogleDoc(google_link)
         # Process the input_data with your Python code here
         chroma.addToCollection(input_data, 'none')
         return render_template("result.html", processed_data='Loaded this content')

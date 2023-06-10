@@ -8,8 +8,11 @@ client = chromadb.Client(Settings(
 
 # chroma_client = chromadb.Client()
 
-collection = client.create_collection(name="my_collection")
-# collection = client.get_collection(name="my_collection")
+# collection = client.create_collection(name="my_collection")
+try:
+    client.create_collection(name="my_collection")
+except:
+    collection = client.get_collection(name="my_collection")
 
 k = 5
 id = 1
