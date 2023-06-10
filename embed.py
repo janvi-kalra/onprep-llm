@@ -3,8 +3,10 @@
 
 from sentence_transformers import SentenceTransformer
 
-def test(sentences):
+# load the model before running the function, so that we don't need to load the model every time 
+model = SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2')
+
+def embed_list(paragraph_list):
     # sentences = ["This is an example sentence", "Each sentence is converted"]
-    model = SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2')
-    embeddings = model.encode(sentences)
+    embeddings = model.encode(paragraph_list)
     return embeddings
