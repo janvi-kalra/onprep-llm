@@ -1,5 +1,7 @@
 import chromadb
 from chromadb.config import Settings
+import string
+import random
 
 client = chromadb.Client(Settings(
     chroma_db_impl="duckdb+parquet",
@@ -15,18 +17,19 @@ except:
     collection = client.get_collection(name="my_collection")
 
 k = 5
-id = 1
+
+def generate_random_string(length):
+    letters_and_digits = string.ascii_letters + string.digits
+    random_string = ''.join(random.choice(letters_and_digits) for _ in range(length))
+    return random_string
 
 # Adds private content to Chroma
 def addToCollection(text, source):
-    global id  
-
     collection.add(
         documents=[text],
         metadatas=[{"source": source}],
-        ids=[str(id)]
+        ids=[generate_random_string(10)]
     )
-    id += 1
 
 # Chooses K-most relevant diary entries
 def getRelevantResponses(query):
