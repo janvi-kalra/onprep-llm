@@ -19,7 +19,7 @@ def submit():
 @views.route("/query", methods=["POST"])
 def query():
     if request.method == "POST":
-        input_data = request.form.get("inputField")
+        input_data = request.form.get("queryField")
         # todo:query chroma embeddings database with text to get stored journal entries with related embeddings
         # todo: query Open Assistant with original query and related journal entries
         return render_template("result.html", processed_data="Congrats, this will soon work for you!")
