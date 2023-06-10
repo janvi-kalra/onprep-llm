@@ -8,13 +8,13 @@ def index():
     return render_template("home.html")
 
 @views.route("/submit", methods=["POST"])
+
 def submit(): 
     if request.method == "POST":
         google_link = request.form.get("inputField")
         input_data = googledocs.getContent(google_link)
-        # Process the input_data with your Python code here
-        chroma.addToCollection(input_data, 'none')
-        return render_template("result.html", processed_data='Loaded this content')
+        chroma.addToCollection(input_data, 'googleDocs')
+        return render_template("home.html")
 
 
 @views.route("/query", methods=["POST"])

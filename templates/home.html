@@ -9,12 +9,13 @@
   <body>
     <h1>Enter Personal Data</h1>
     <form method="POST" action="{{ url_for('views.submit') }}">
-      <label for="inputField">Enter your private data:</label>
+      <label for="inputField">Enter a link to your private data:</label>
       <input
         type="text"
         id="inputField"
         name="inputField"
-        placeholder="Your private data here"
+        placeholder="Link here"
+        style="width: 60%;"
       />
       <br /><br />
       <input type="submit" value="Submit" />
