@@ -9,7 +9,6 @@ def index():
 
 @views.route("/submit", methods=["POST"])
 def submit(): 
-    print('IN SUBMIT')
     if request.method == "POST":
         input_data = request.form.get("inputField")
         # Process the input_data with your Python code here
