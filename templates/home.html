@@ -18,5 +18,16 @@
       <br /><br />
       <input type="submit" value="Submit" />
     </form>
+    <form method="POST" action="{{ url_for('views.query') }}">
+      <label for="queryField">Enter your query:</label>
+      <input
+              type="text"
+              id="queryField"
+              name="queryField"
+              placeholder="Your query here"
+      />
+      <br /><br />
+      <input type="submit" value="Submit" />
+    </form>
   </body>
 </html>
