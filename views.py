@@ -15,7 +15,7 @@ def submit():
         google_link = request.form.get("inputField")
         input_data = googledocs.getContent(google_link)
         chroma.addToCollection(input_data, 'googleDocs')
-        return render_template("home.html")
+        return render_template("home.html", process_data=None)
 
 
 @views.route("/query", methods=["POST"])
@@ -25,4 +25,4 @@ def query():
         query = request.form.get("queryField")
         resp = chroma.getRelevantResponses(query)
         completion = get_completion_from_openassistant(query, resp['documents'])
-        return render_template("result.html", processed_data=completion)
+        return render_template("home.html", processed_data=completion)
