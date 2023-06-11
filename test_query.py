@@ -30,10 +30,13 @@ import googledocs
 from chroma import getRelevantResponses
 from query import run_query, get_completion_from_openassistant
 
+### Ingest 
 google_link = 'https://docs.google.com/document/d/1ukOID1wlstzmE1kC8CMZkiz-zDrgOtCNtgcdHXg7vZg/edit'
 input_data = googledocs.getContent(google_link)
 # Process the input_data with your Python code here
 chroma.addToCollection(input_data, 'none')
+
+### Query 
 # run_query('LLM')
 query = 'LLM'
 resp = getRelevantResponses(query)
