@@ -11,25 +11,6 @@ openai.api_key = os.getenv('OPENAI_API_KEY')
 ####################################
 ## HELPERS 
 ####################################
-
-# TODO 
-# def retrieve_from_chroma(embedded_query:list) -> dict:
-#     """Retrieve the embedded text from Chroma.
-#     """
-#     return False
-
-# def get_retrievals(query:str) -> dict:
-#     embedded_query = embed_list(query)
-#     relevant_retrievals = retrieve_from_chroma(embedded_query)
-#     return relevant_retrievals
-
-# TODO 
-# def format_prompt(query:str, relevant_retrievals:dict) -> str:
-#     """Format the prompt for the user.
-#     """
-#     return False
-
-
 def format_query_system_context(relevant_retrievals: List[str]) -> str:
     """Format system-level prompt for the user"""
     context = ' '.join([r[0] for r in relevant_retrievals])
