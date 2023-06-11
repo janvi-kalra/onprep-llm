@@ -3,3 +3,4 @@ venv/
 __pycache__/
 chroma_directory/
 .env
+token.json
