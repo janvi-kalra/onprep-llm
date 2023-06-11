@@ -24,5 +24,5 @@ Here are your traits, Kindred:
 
 RELEVANT_DATA = ''
 
-def getPrompt(INSTRUCTION, relevant_data, user_input):
+def getPrompt(relevant_data, user_input):
     return SHORT_INSTRUCTION + '. Here is the relevant data from their diary entries: ' + relevant_data +'. \n Please use this context to give the user advice on the following question: \n User: ' + user_input + '\n Kindred: ')
