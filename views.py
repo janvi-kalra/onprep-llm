@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, request
 import embed, chroma, googledocs
-from query import get_completion_from_openassistant
+from query import get_completion_from_openassistant,get_completion_from_local 
 
 views = Blueprint(__name__, "views")
 
@@ -24,5 +24,7 @@ def query():
         # example: "What might be causing my anxiety?"
         query = request.form.get("queryField")
         resp = chroma.getRelevantResponses(query)
-        completion = get_completion_from_openassistant(query, resp['documents'])
+        # completion = get_completion_from_openassistant(query, resp['documents'])
+        completion = get_completion_from_local(query, resp['documents'])
+
         return render_template("home.html", processed_data=completion)
