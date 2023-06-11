@@ -1,5 +1,6 @@
 from flask import Blueprint, render_template, request
 import embed, chroma, googledocs
+from query import get_completion_from_openassistant
 
 views = Blueprint(__name__, "views")
 
@@ -20,8 +21,8 @@ def submit():
 @views.route("/query", methods=["POST"])
 def query():
     if request.method == "POST":
-        question = request.form.get("queryField")
-        print(question)
-        relevant_data = chroma.getRelevantResponses(question)
-        # todo: query Open Assistant with original query and related journal entries
-        return render_template("result.html", processed_data=relevant_data)
+        # example: "What might be causing my anxiety?"
+        query = request.form.get("queryField")
+        resp = chroma.getRelevantResponses(query)
+        completion = get_completion_from_openassistant(query, resp['documents'])
+        return render_template("result.html", processed_data=completion)
