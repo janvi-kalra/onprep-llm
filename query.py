@@ -10,14 +10,14 @@ load_dotenv()
 
 print ("## loading model")
 
-mname = "facebook/blenderbot-400M-distill"
+mname = "facebook/blenderbot-400M-distill" 
 model = BlenderbotForConditionalGeneration.from_pretrained(mname)
 tokenizer = AutoTokenizer.from_pretrained(mname)
 
 print("## model loaded, starting Q&A loop")
 
 SHORT_INSTRUCTION = ''' 
-You are an expert IFS therapist named "Kindred," and you are helping your client process their memories. '''
+You are an expert IFS therapist, and you are helping them process their memories. '''
 
 def list_to_string(lines):
     print ('retrieved list lines: ', lines) 
@@ -29,15 +29,15 @@ def list_to_string(lines):
 def get_prompt(relevant_data, user_input):
     retrievals_str = format_query_system_context(relevant_data)
 
-    return str(SHORT_INSTRUCTION + '. \n Here is the relevant data from their diary entries: ' + retrievals_str +'. \n Please use this context to give the client advice on the following question: \n User: ' + user_input + '\n Kindred: ') 
+    return str(SHORT_INSTRUCTION + '. \n Here is a past experience from their diary entries: ' + retrievals_str +'. \n Please refer to that memory to give the them advice on the following question: ' + user_input ) 
 
 def get_completion_from_local(query: str, relevant_retrievals: List[str]) -> str:
     """Get the completion from OpenAssistant. 
     """
     full_prompt = get_prompt(relevant_retrievals, query)
 
-    print('full_prompt: ', full_prompt)
-    print(f"length of full_prompt:  {len(tokenizer.tokenize(full_prompt))}")
+    print(f"full_prompt: \n {full_prompt}\n")
+    print(f"length of full_prompt:  {len(tokenizer.tokenize(full_prompt))}\n")
 
     inputs = tokenizer([full_prompt], return_tensors="pt")
     reply_ids = model.generate(**inputs)

@@ -31,7 +31,8 @@ def addToCollection(text, source):
             documents=[t],
             metadatas=[{"source": source}],
             ids=[generate_random_string(10)]
-    )
+        )
+        print('added to collection: ', t)
 
 # Chooses K-most relevant diary entries
 def getRelevantResponses(query):
@@ -39,4 +40,6 @@ def getRelevantResponses(query):
         query_texts=[query],
         n_results=k
     )
+    print('query', query)
+    print('relevant results', results)
     return results

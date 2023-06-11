@@ -1,39 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home</title>
-  </head>
-  <body>
-    <h1>Enter Personal Data</h1>
-    <form method="POST" action="{{ url_for('views.submit') }}">
-      <label for="inputField">Enter a link to your private data:</label>
-      <input
-        type="text"
-        id="inputField"
-        name="inputField"
-        placeholder="Link here"
-        style="width: 60%;"
-      />
-      <br /><br />
-      <input type="submit" value="Submit" />
-    </form>
-    <h1>Ask Question</h1>
-    <form method="POST" action="{{ url_for('views.query') }}">
-      <label for="queryField">Enter your query:</label>
-      <input
-              type="text"
-              id="queryField"
-              name="queryField"
-              placeholder="Your query here"
-              style="width: 60%;"
-      />
-      <br /><br />
-      <input type="submit" value="Submit" />
-    <h1>Kindred's Response: </h1>
-      <p>{{ processed_data }}</p>
-    <div></div>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Private AI Coach</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f7f7f7;
+      color: #333;
+    }
+
+    h1 {
+      margin-top: 0;
+    }
+
+    form {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    input[type="text"] {
+      width: 60%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    input[type="submit"] {
+      padding: 10px 20px;
+      background-color: #4caf50;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+
+    p {
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Enter Personal Data</h1>
+  <form method="POST" action="{{ url_for('views.submit') }}">
+    <label for="inputField">Enter a link to your private data:</label>
+    <input type="text" id="inputField" name="inputField" placeholder="Link here">
+    <br><br>
+    <input type="submit" value="Submit">
+  </form>
+  <br><br>
+  <h1>Ask Question</h1>
+  <form method="POST" action="{{ url_for('views.query') }}">
+    <label for="queryField">Enter your query:</label>
+    <input type="text" id="queryField" name="queryField" placeholder="Your query here">
+    <br><br>
+    <input type="submit" value="Submit">
+  </form>
+  <br><br>
+  <h1>Kindred's Response:</h1>
+  <p>{{ processed_data }}</p>
+</body>
 </html>
