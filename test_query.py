@@ -13,8 +13,11 @@
 # })
 
 # import openai
-# OPENAI_API_KEY = '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'
-# openai.api_key = OPENAI_API_KEY
+# import os
+# from dotenv import load_dotenv
+# load_dotenv()
+# openai.api_key = os.getenv('OPENAI_API_KEY')
+# # openai.api_key = OPENAI_API_KEY
 #
 # resp = openai.ChatCompletion.create(
 #     model="gpt-3.5-turbo",
@@ -25,17 +28,21 @@
 #         {"role": "user", "content": "Where was it played?"}
 #     ]
 # )
+# print(resp)
+
 import chroma
 import googledocs
 from chroma import getRelevantResponses
 from query import run_query, get_completion_from_openassistant
 
-google_link = 'https://docs.google.com/document/d/1ukOID1wlstzmE1kC8CMZkiz-zDrgOtCNtgcdHXg7vZg/edit'
+google_link = 'https://docs.google.com/document/d/1-aLy3QMjoB2Ssr46m27gvTpfxfe9mj2865Gplwu16W8/edit'
 input_data = googledocs.getContent(google_link)
 # Process the input_data with your Python code here
+
 chroma.addToCollection(input_data, 'none')
 # run_query('LLM')
-query = 'LLM'
+# query = "What secrets am I keeping with myself?"
+query = "What might be causing my anxiety?"
 resp = getRelevantResponses(query)
 completion = get_completion_from_openassistant(query, resp['documents'])
 import pdb; pdb.set_trace()

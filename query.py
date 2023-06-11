@@ -43,7 +43,6 @@ def get_completion_from_openassistant(query: str, relevant_retrievals: List[str]
     """Get the completion from OpenAssistant. 
     """
     syste_context = format_query_system_context(relevant_retrievals)
-    import pdb; pdb.set_trace()
     resp = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
         messages=[

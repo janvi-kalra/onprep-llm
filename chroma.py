@@ -39,3 +39,44 @@ def getRelevantResponses(query):
     )
     print(results)
     return results
+
+
+
+
+# import chromadb
+# from chromadb.config import Settings
+#
+# class ChromaClient:
+#     def __init__(self):
+#         self.k = 5
+#         self.id = 1
+#         self.client = chromadb.Client(Settings(
+#             chroma_db_impl="duckdb+parquet",
+#             persist_directory="./chroma_directory"
+#         ))
+#         try:
+#             self.client.create_collection(name="my_collection")
+#         except ValueError as e:
+#             # collection already exists
+#             pass
+#         self.collection = self.client.get_collection(name="my_collection")
+#
+#         # Adds private content to Chroma
+#     def addToCollection(self, text, source):
+#         global id
+#
+#         self.collection.add(
+#             documents=[text],
+#             metadatas=[{"source": source}],
+#             ids=[str(id)]
+#         )
+#         id += 1
+#
+#     # Chooses K-most relevant diary entries
+#     def getRelevantResponses(self, query):
+#         results = self.collection.query(
+#             query_texts=[query],
+#             n_results=k
+#         )
+#         print(results)
+#         return results
