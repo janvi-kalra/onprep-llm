@@ -1,13 +1,15 @@
 # onprem-llm
 
-👋 Welcome to onprem llm: an infrastructure to chat with your data on premises to ensure your privacy. Think: ChatGPT where none of the questions leave your computer. So you can ask ChatGPT your deepest darkest secrets :) More like... so that no companies can sell the data about the questions you ask. 
+👋 Welcome to onprem llm: an infrastructure to chat with your data on premises ensuring privacy.
+
+Think: ChatGPT but OpenAI no longer has access to the questions you input. That way, companies cannot sell this data, and you can ask ChatGPT your deepest darkest secrets :) Oh and your company's intellectual property is safe too
 
 ### Demo Video 
 https://www.loom.com/share/8cde7eecbe08481d814efb9077c197f8
 
 ### Authors
 
-Onprem LLM was hacked together by [Stephen Zerfas](https://www.linkedin.com/in/stephen-zerfas1/), [Stephen Frey](https://twitter.com/stevekfrey) and [Janvi Kalra](https://twitter.com/janvikalra_) on June 10, 2023 as a part of [Fifty years](https://fiftyyears.com/) VC's Wellbeing <> AI build weekend.
+Onprem LLM was hacked together by [Stephen Zerfas](https://www.linkedin.com/in/stephen-zerfas1/), [Stephen Frey](https://twitter.com/stevekfrey) and [Janvi Kalra](https://twitter.com/janvikalra_) on June 10, 2023 as a part of a hackathon hosted by [Fifty years](https://fiftyyears.com/) VC. 
 
 ### Infrastructure 
 
