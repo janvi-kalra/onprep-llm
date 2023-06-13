@@ -1,5 +1,6 @@
 # https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2
 # responsible for turning text -> embeddings
+# did not end up using, because chroma handles embeddings.
 
 from sentence_transformers import SentenceTransformer
 

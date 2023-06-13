@@ -8,9 +8,6 @@ client = chromadb.Client(Settings(
     persist_directory="./chroma_directory"
 ))
 
-# chroma_client = chromadb.Client()
-
-# collection = client.create_collection(name="my_collection")
 try:
     client.create_collection(name="my_collection")
 except:
