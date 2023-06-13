@@ -11,7 +11,7 @@ GoogleDocsReader = download_loader('GoogleDocsReader')
 
 def getContent(link):
     doc_id = re.search(r"/d/([a-zA-Z0-9-_]+)", link).group(1)
-    print('the doc_id', doc_id)
+    # print('the doc_id', doc_id)
     GoogleDocsReader = download_loader('GoogleDocsReader')
     gdoc_ids = [doc_id]
     loader = GoogleDocsReader()

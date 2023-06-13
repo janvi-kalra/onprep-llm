@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, request
-import embed, chroma, googledocs
-from query import get_completion_from_openassistant,get_completion_from_local 
+import chroma, googledocs
+from query import get_completion_from_local 
 
 views = Blueprint(__name__, "views")
 
