@@ -3,6 +3,7 @@
 👋 Welcome to onprem llm: an infrastructure to chat with your data on premises to ensure your privacy. Think: ChatGPT where none of the questions leave your computer. So you can ask ChatGPT your deepest darkest secrets :) More like... so that no companies can sell the data about the questions you ask. 
 
 ### Demo Video 
+https://www.loom.com/share/8cde7eecbe08481d814efb9077c197f8
 
 ### Authors
 
