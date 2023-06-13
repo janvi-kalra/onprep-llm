@@ -1,6 +1,6 @@
 from typing import List
 import os
-import openai
+# import openai
 import torch
 from transformers import AutoTokenizer, BlenderbotForConditionalGeneration
 from dotenv import load_dotenv

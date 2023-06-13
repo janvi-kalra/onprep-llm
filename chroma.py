@@ -25,7 +25,7 @@ def generate_random_string(length):
 
 # Adds private content to Chroma
 def addToCollection(text, source):
-    short_text = text.split(".")
+    short_text = text.split("Journal Entry")
     for t in short_text: 
         collection.add(
             documents=[t],
